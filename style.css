@@ -1,9 +1,10 @@
-.wrap{
+.wrap {
 	text-align: center;
 	margin: 0 auto;
+	width: 400px;
 }
 
-.start-btn, .reset-btn{
+.start-btn, .reset-btn {
 	text-align: center;
 	width: 150px;
 	padding: 15px 0;
@@ -12,4 +13,19 @@
 	border: 1px solid green;
 	background-color: green;
 	color: white;
+	display: inline-block;
+}
+
+.game-table-cell {
+	border: 1px solid black;
+	width: 15px;
+	height: 15px;
+}
+
+.game-table {
+	border-collapse: collapse;
+}
+
+#game-field {
+	display: inline-block;
 }
