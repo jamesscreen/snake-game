@@ -9,7 +9,20 @@ var snake_timer; // Таймер змейки
 var food_timer; // Таймер для еды
 var score = 0; // Результат
 
+function init(){
+	createGameField(); // создаем игровое поле
+	
+}
 
+function createGameField(){
+	var game_table = document.createElement('table');
+	game_table.setAttribute('class', 'game-table');
+	
+	
+	
+	// Добавление таблицы
+	document.getElementById('game-field').appendChild(game_table);
+}
 
 // выполняем инициализацию после загрузки страницы
 window.onload = init;
