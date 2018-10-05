@@ -28,3 +28,7 @@
 #game-field {
 	display: inline-block;
 }
+
+.snake-unit {
+	background-color: darkgrey;
+}

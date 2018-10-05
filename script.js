@@ -32,11 +32,30 @@ function refreshGame(){
 function startGame(){
 	gameIsRunning = true;
 	
-	//createSnake(); // функция создания "Змейки"
+	createSnake(); // функция создания "Змейки"
 	
 	//каждые 200мс запускаем функцию move
 	snake_timer = setInterval(move, SNAKE_SPEED);
 	setTimeout(createFood, 5000);
+}
+
+function createSnake(){
+	// стартовая длина змейки = 2
+	// Змейка - массив td
+	
+	// задаем координаты появления Змейки
+	var start_coord_x = Math.floor(FIELD_SIZE_X / 2);
+	var start_coord_y = Math.floor(FIELD_SIZE_Y / 2);
+	
+	// голова Змейки
+	var snake_head = document.getElementsByClassName('cell-' + start_coord_y + '-' + start_coord_x)[0];
+	snake_head.setAttribute('class', snake_head.getAttribute('class') + ' snake-unit');
+	// тело Змейки
+	var snake_tail = document.getElementsByClassName('cell-' + (start_coord_y - 1) + '-' + start_coord_x)[0];
+	snake_tail.setAttribute('class', snake_tail.getAttribute('class') + ' snake-unit');
+	
+	snake.push(snake_head);
+	snake.push(snake_tail);
 }
 
 function move(){
