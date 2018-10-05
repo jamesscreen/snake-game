@@ -39,6 +39,7 @@ function startGame(){
 	setTimeout(createFood, 5000);
 }
 
+// располагаем змейку на игровом поле
 function createSnake(){
 	// стартовая длина змейки = 2
 	// Змейка - массив td
@@ -58,6 +59,7 @@ function createSnake(){
 	snake.push(snake_tail);
 }
 
+// движение Змейки
 function move(){
 	m++;
 	console.log('Move ' + m + '\n');
