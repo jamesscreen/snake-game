@@ -9,10 +9,46 @@ var snake_timer; // Таймер змейки
 var food_timer; // Таймер для еды
 var score = 0; // Результат
 
+var m = 0;
+var k = 0;
+
+
 function init(){
 	createGameField(); // создаем игровое поле
 	
+	// при нажатии на кнопку "Старт" запускаем функцию "startGame"
+	document.getElementById('start-btn').addEventListener('click', startGame);
+	// при нажатии на кнопку "Новая игра" запускаем функцию "refreshGame"
+	document.getElementById('reset-btn').addEventListener('click', refreshGame);
+	
+	// отслеживание клавиш клавиатуры
+	//addEventListener('keydown', changeDirection);
 }
+
+function refreshGame(){
+	location.reload();
+}
+
+function startGame(){
+	gameIsRunning = true;
+	
+	//createSnake(); // функция создания "Змейки"
+	
+	//каждые 200мс запускаем функцию move
+	snake_timer = setInterval(move, SNAKE_SPEED);
+	setTimeout(createFood, 5000);
+}
+
+function move(){
+	m++;
+	console.log('Move ' + m + '\n');
+}
+
+function createFood(){
+	k++;
+	console.log('New Food ' + k + '\n');
+}
+
 
 function createGameField(){
 	// создаем новый тег "table"
