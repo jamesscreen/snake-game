@@ -32,3 +32,7 @@
 .snake-unit {
 	background-color: darkgrey;
 }
+
+.food-unit{
+	background-color: red;
+}
