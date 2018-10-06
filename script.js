@@ -36,8 +36,8 @@ function startGame(){
 	createSnake(); // функция создания "Змейки"
 	
 	//каждые 200мс запускаем функцию move
-//	snake_timer = setInterval(move, SNAKE_SPEED);
-//	setTimeout(createFood, 5000);
+	snake_timer = setInterval(move, SNAKE_SPEED);
+	setTimeout(createFood, 5000);
 }
 
 
@@ -137,8 +137,15 @@ function haveFood(unit){
 		createFood();
 		
 		score++;
+		
+		printScore(); // выводи счет в реальном времени
 	}
 	return check;
+}
+
+
+function printScore(){
+	document.getElementById('score-field').textContent = 'Текущий счёт: ' + score;
 }
 
 
