@@ -38,6 +38,8 @@ function startGame(){
 	//каждые 200мс запускаем функцию move
 	snake_timer = setInterval(move, SNAKE_SPEED);
 	setTimeout(createFood, 5000);
+	
+	setInterval(createBarrier, 8000); // генерируем препятствия
 }
 
 
@@ -138,12 +140,13 @@ function haveFood(unit){
 		
 		score++;
 		
-		printScore(); // выводи счет в реальном времени
+		printScore(); // выводим счет в реальном времени
 	}
 	return check;
 }
 
 
+// вывод текущего счёта
 function printScore(){
 	document.getElementById('score-field').textContent = 'Текущий счёт: ' + score;
 }
@@ -170,6 +173,28 @@ function createFood(unit){
 			food_cell.setAttribute('class', classes + 'food-unit');
 			foodCreated = true;
 		}
+	}
+}
+
+
+// Создаем рандомные барьеры
+function createBarrier(){
+	
+	var barrier_x = Math.floor(Math.random() * FIELD_SIZE_X);
+	var barrier_y = Math.floor(Math.random() * FIELD_SIZE_Y);
+	
+	var barrier_cell = document.getElementsByClassName('cell-' + barrier_y + '-' + barrier_x)[0];
+	var barrier_cell_classes = barrier_cell.getAttribute('class').split(' ');
+	
+	// проверим, попали ли на змейку или еду
+	if(!barrier_cell_classes.includes('snake-unit') && !barrier_cell_classes.includes('food-unit')){
+		var classes = '';
+		for (var i = 0; i < barrier_cell_classes.length; i++) {
+			classes += barrier_cell_classes[i] + ' ';
+		}
+		
+		barrier_cell.setAttribute('class', classes + 'barrier-unit');
+		//barrierCreated = true;
 	}
 }
 
