@@ -4,6 +4,11 @@
 	width: 400px;
 }
 
+#score-field {
+	height: 20px;
+	text-align: center;
+}
+
 #start-btn, #reset-btn {
 	text-align: center;
 	width: 150px;
