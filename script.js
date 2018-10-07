@@ -99,9 +99,9 @@ function move(){
 	// Проверки
 	// 1) new_unit не часть змейки
 	// 2) Змейка не ушла за границу поля
-	//console.log(new_unit);
+	// console.log(new_unit);
 	
-	if (!isSnakeUnit(new_unit) && new_unit !== undefined){
+	if (!isSnakeUnit(new_unit) && new_unit !== undefined && !snake_head_classes.includes('barrier-unit')){
 		
 		// Добавление новой части змейки
 		new_unit.setAttribute('class', new_unit.getAttribute('class') + ' snake-unit');
@@ -120,6 +120,10 @@ function move(){
 			removed.setAttribute('class', classes[0] + ' ' + classes[1]);
 		}
 	} else {
+    if(snake_head_classes.includes('barrier-unit')){
+      //snake_head_classes.classList.add('stuck');
+      console.log(snake_head_classes);
+    }
 		finishTheGame();
 	}
 }
@@ -132,6 +136,14 @@ function isSnakeUnit(unit) {
 	}
 	return check;
 }
+
+//function isBarrierUnit(unit){
+//  var check = false;
+//	if (snake.includes('barrier-unit')) {
+//		check = true;
+//	}
+//	return check;
+//}
 
 
 // вывод текущего счёта
