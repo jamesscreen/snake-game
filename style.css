@@ -9,6 +9,10 @@
 	text-align: center;
 }
 
+.barrier-unit {
+	background-color: blue;
+}
+
 #start-btn, #reset-btn {
 	text-align: center;
 	width: 150px;
